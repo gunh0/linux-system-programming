@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
 	{
 		int cnt;
 		buf = malloc(4096);
-		if (fd_dest = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC), 0666)
+		if (fd_dest = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC), 0644)
 		{
 			do
 			{

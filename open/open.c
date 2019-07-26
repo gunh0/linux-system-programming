@@ -4,22 +4,22 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
 	int fd;
 
-	if(argc > 1)
+	if (argc > 1)
 	{
-		fd = open(argv[1],O_RDONLY);
-		if(fd == -1)
+		fd = open(argv[1], O_RDONLY);
+		if (fd == -1)
 		{
-			printf("Invalid file name : %s\n",argv[1]);
+			printf("Invalid file name : %s\n", argv[1]);
 		}
 		else
-	{
-		printf("Success to open file : %s\n",argv[1]);
-		close(fd);
-	}
+		{
+			printf("Success to open file : %s\n", argv[1]);
+			close(fd);
+		}
 	}
 
 	else
