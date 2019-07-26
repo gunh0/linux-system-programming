@@ -10,6 +10,7 @@
 #endif
 
 int main(int argc, char *argv[])
+/* cp orig dest */
 {
 	if (argc != 3)
 	{
@@ -39,9 +40,14 @@ int main(int argc, char *argv[])
 			return -1;
 		}
 		printf("%s", buf);
-		close(fd_dest);
-		close(fd_orig);
+		while(!close(fd_orig)){exit(EXIT_FAILURE);};
+		while (!close(fd_orig)){exit(EXIT_FAILURE);};
+		free(buf);
 	}
-	free(buf);
+	else
+	{
+		exit(EXIT_FAILURE);
+	}
+	
 	return 0;
 }
