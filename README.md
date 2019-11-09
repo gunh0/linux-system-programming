@@ -1,0 +1,34 @@
+# Linux OS
+
+- 다중 사용자 시스템
+- 프로세스(process) 및 스레드(thread) 기반의 Multi-tasking(다중 테스킹)
+- 선점(preemptive) 및 비 선점 스케줄링
+- 다중 CPU 환경의 제공
+  - SMP : Symmetric Multi Processor
+  - NUMA : Non-uniform Memory Access
+
+- 하드웨어에 대한 높은 이식성
+- Virtual Memory (가상 메모리) 시스템 지원
+  - Demand Paging
+  - Page-caching
+  - Swap-caching
+  - Copy-on-write
+  - Pre-loading (OMAGIC)
+- 가상 파일 시스템
+  - Ext2
+  - 상용 유닉스 파일 시스템
+  - VFAT
+  - FAT
+  - ISO
+  - NFS
+- Dynamic cache
+- Shared libraries (ELF)
+- Networking
+- GNU C (gcc, g++)
+- Part of POSIX 1003.1-2001, BSD, SysV
+- 다양한 실행 파일 포맷 제공
+- 국제적 키보드와 폰트 제공
+- 풍부한 응용 프로그램
+- 다양한 배포판
+  - RedHat, SuSe, Debian, Slackware, Ubuntu
+- Open Source Software, OSS
