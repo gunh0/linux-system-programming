@@ -1,3 +1,4 @@
+// fork와 exec 시스템 호출의 소규모 쉘의 예시
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <unistd.h>

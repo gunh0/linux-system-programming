@@ -12,6 +12,12 @@ off_t lseek(int fildes, off_t offset, int whence);
         - error : -1
 */
 
+/*
+record 구조체에 의해 정의되는 레코드 1024개를 가진 파일에 대해
+레코드의 순번으로 임의 접근을 수행하고 읽기/삽입/수정을 실행하는
+프로그램 예제
+*/
+
 #include <stdio.h>
 #include <sys/types.h>
 #include <sys/stat.h>
