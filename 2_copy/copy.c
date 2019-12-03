@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
 	if (fd_orig = open(argv[1], O_RDONLY))
 	{
 		buf = malloc(4096);
-		if (fd_dest = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC), 0644)
+		if (fd_dest = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC), 0777)
 		{
 			do
 			{
@@ -40,14 +40,20 @@ int main(int argc, char *argv[])
 			return -1;
 		}
 		printf("%s", buf);
-		while(!close(fd_orig)){exit(EXIT_FAILURE);};
-		while (!close(fd_orig)){exit(EXIT_FAILURE);};
+		while (!close(fd_orig))
+		{
+			exit(EXIT_FAILURE);
+		};
+		while (!close(fd_orig))
+		{
+			exit(EXIT_FAILURE);
+		};
 		free(buf);
 	}
 	else
 	{
 		exit(EXIT_FAILURE);
 	}
-	
+
 	return 0;
 }
