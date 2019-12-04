@@ -20,6 +20,8 @@ int fcntl(int fd, int cmd, struct flock *lock);
 
 ---
 
+### cmd
+
 		- F_DUPFD : dup, arg로 주어진 번호보다 크거나 같은 값에서 dup, 새로운 file descriptor 반환
 		- F_GETFD : close_on_exec flag 조사, flag의 값 return
 		- F_SETFD : close_on_exec flag를 arg에 따라 set, 0을 return
