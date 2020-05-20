@@ -2,7 +2,7 @@
 
 ##### The Creation and Extinction of a Process
 
-- Process creation and collaboration by Fork : print_num
+- Process creation and collaboration by fork : print_num
 
 ##### System Call exec Group for Program Replacement(Loading) of Processes
 
@@ -11,3 +11,7 @@
 <br>
 
 ## File System
+
+##### File I/O functions
+
+- Example code of file copy : copy

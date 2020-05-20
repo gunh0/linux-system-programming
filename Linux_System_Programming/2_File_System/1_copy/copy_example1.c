@@ -1,4 +1,5 @@
 // 시스템 함수들을 이용하여 한 파일을 다른 파일로 복사하는 프로그램
+// outfile.out 'source file: input.txt' 'copy file: output.txt'
 
 #include <sys/types.h>
 #include <sys/stat.h>
