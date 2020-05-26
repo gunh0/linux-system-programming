@@ -1,2 +1,0 @@
-# Vitual Memory System
-
