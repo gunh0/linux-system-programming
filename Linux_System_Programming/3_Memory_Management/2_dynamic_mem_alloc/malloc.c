@@ -14,7 +14,7 @@ int main(void)
     if(ptr)
     {
         ptr->no=1;
-        strcpy(ptr->name, "RTDCS");
+        strcpy(ptr->name, "DevGun");
 
         printf("record id %d\n",ptr->no);
         printf("record name %s\n",ptr->name);
