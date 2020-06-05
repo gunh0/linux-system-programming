@@ -1,3 +1,17 @@
+`int main(int argc, char *argv[])`
+
+> `argv` and `argc` are how command line arguments are passed to `main()` in C and C++.
+>
+> `argc` will be the number of strings pointed to by `argv`. This will (in practice) be 1 plus the number of arguments, as virtually all implementations will prepend the name of the program to the array.
+>
+> The variables are named `argc` (*argument count*) and `argv` (*argument vector*) by convention, but they can be given any valid identifier: `int main(int num_args, char** arg_strings)` is equally valid.
+>
+> They can also be omitted entirely, yielding `int main()`, if you do not intend to process command line arguments.
+
+<br/>
+
+<br/>
+
 ## Process & Thread
 
 ##### The Creation and Extinction of a Process
@@ -9,6 +23,8 @@
 - Example of a small shell using fork and exec system calls : shell
 
 <br>
+
+<br/>
 
 ## File System
 
@@ -167,11 +183,15 @@ int fcntl(int fd, int cmd, struct flock *lock);
 
 <br/>
 
+<br/>
+
 ## Memory Mapped file
 
 - 리눅스 운영체제에서는 입출력 장치나 파일의 내용을 프로세스의 가상 주소 공간으로 사상(mapping)하여 입출력의 편의성 및 접근 속도를 증가시키는 기법이 제공되는데, 이를 메모리 사상 입출력(memory mapped I/O)이라 하고 이와 관련된 파일을 메모리 사상 파일(memory mapped file)이라 한다.
 - 이와 같은 기법은 일반 read 나 write 시스템 호출에서의 커널 버퍼에서 사용자 버퍼로의 복사 대신에, 사상된 사용자 주소 공간의 페이지에 직접적인 버퍼링을 하므로 일반적으로 향상된 접근 시간을 제공한다.
 - 즉, 이와 같은 사상 기법을 사용하면 파일로의 입출력이 메모리로의 입출력이 되며, 프로세스는 파일에 대한 읽기/쓰기 작업을 하지 않고 변수, 포인터, 배열 등을 사용하여 파일의 내용에 접근할 수 있다.
+
+<br/>
 
 <br/>
 
