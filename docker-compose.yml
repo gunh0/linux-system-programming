@@ -1,0 +1,9 @@
+version: '2'
+services:
+   ubuntu_1804:
+      image: ubuntu:18.04
+      volumes:
+        - type: bind
+          source: ./
+          target: /home/
+      tty: true

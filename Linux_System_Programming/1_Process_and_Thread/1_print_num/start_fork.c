@@ -5,8 +5,8 @@
 #include <stdlib.h>
 
 int global_int = 5;
-int main()
-{
+
+int main() {
     pid_t pid;
 
     if ((pid = fork()) == 0) // child
@@ -14,8 +14,7 @@ int main()
         global_int = 6;
         printf("child's data = %d\n", global_int);
         exit(0);
-    }
-    else // parent
+    } else // parent
     {
         global_int = 7;
         printf("parent's data = %d\n", global_int);
@@ -23,7 +22,6 @@ int main()
     }
 
     // parent : after join
-
     printf("parent's data = %d", global_int);
     return 0;
 }
