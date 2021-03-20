@@ -1,8 +1,8 @@
-/* 메모리 사상 입출력에 의한 병행 프로세스의 파일
+/* Memory mapped I/O for parallel process file operations
 
-아래 코드에서 타겟 파일이 일단 생성되었어도 실질적으로 그 내용은 존재하지 않으므로 크기는 0이고
-이와 같은 파일에 대해 그보다 큰 크기의 주소 공간을 사상하는 것은 불가능하다.
-따라서 타겟 파일에 사상하려면 파일의 마지막 부분에 write를 실행하여 소스 파일과 같은 크기로 만든 후 사상하여야 한다.
+In the code below, even though the target file is created, its content doesn't actually exist, so its size is 0.
+It's impossible to map an address space larger than the file size to such a file.
+Therefore, to map to the target file, you must execute a write at the end of the file to make it the same size as the source file before mapping.
 */
 
 #include <stdio.h>

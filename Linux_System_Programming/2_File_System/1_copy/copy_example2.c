@@ -28,9 +28,9 @@ int main(int argc, char *argv[])
 			{
 				n = read(fd_orig, buf, BUF_SIZE);
 				write(fd_dest, buf, n);
-				/* write(int 파일 서술자,
-                const void* 파일 서술자에 쓰려고 하는 데이터,
-                size_t 쓰려는 바이트의 수); */
+				/* write(int file_descriptor,
+                const void* data_to_write_to_file_descriptor,
+                size_t number_of_bytes_to_write); */
 			} while (n == BUF_SIZE);
 		}
 		else

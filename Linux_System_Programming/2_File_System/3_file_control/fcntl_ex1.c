@@ -17,6 +17,6 @@ int main(void)
     }
 
     close(STDOUT_FILENO);
-    write(3,MESSAGE,strlen(MESSAGE));   // 실제 모니터로 출력됨
+    write(3,MESSAGE,strlen(MESSAGE));   // Actually outputs to monitor
     return 0;
 }

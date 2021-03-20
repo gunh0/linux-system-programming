@@ -1,9 +1,9 @@
-/* parent 와 child 프로세스의 pipe 에 의한 파일 복사의 예
+/* Example of file copy using pipe between parent and child processes
 
-parent 프로세스는 child 로부터 pipe 를 통해 전달되는 파일의 내용을 새로운 파일에 목사하는데,
-양 프로세스의 속도가 다르므로 pipe 가 비게될 경우에 parent 는 대기하게 된다.
-파일의 전송이 모두 완료되면 child 가 pipe 의 write 채널을 close 하게 되어
-parente 는 더는 대기하지 않고 읽은 byte의 수가 0으로 return 되어 프로그램을 종료하게 된다.
+The parent process copies file contents received from the child through a pipe to a new file.
+Since both processes have different speeds, the parent will wait when the pipe becomes empty.
+When file transmission is complete, the child closes the write channel of the pipe,
+so the parent no longer waits and the number of bytes read returns 0, terminating the program.
 */
 
 #include <stdio.h>
