@@ -1,6 +1,35 @@
-# Linux System Programming for Security Engineers
+# Linux System Programming
 
 This repository focuses on strengthening Linux system programming capabilities using C language, specifically designed for security engineers who want to gain deep knowledge from code-level understanding.
+
+## Table of Contents
+
+- [Linux System Programming](#linux-system-programming)
+  - [Table of Contents](#table-of-contents)
+  - [Linux OS Core Features](#linux-os-core-features)
+  - [Linux System Programming Examples and Documentation](#linux-system-programming-examples-and-documentation)
+    - [Command Line Arguments in C](#command-line-arguments-in-c)
+  - [Process \& Thread](#process--thread)
+    - [The Creation and Extinction of a Process](#the-creation-and-extinction-of-a-process)
+    - [System Call exec Group for Program Replacement(Loading) of Processes](#system-call-exec-group-for-program-replacementloading-of-processes)
+  - [File System](#file-system)
+    - [File I/O functions](#file-io-functions)
+    - [Random Access](#random-access)
+    - [File Control](#file-control)
+  - [Memory Management](#memory-management)
+    - [Dynamic Memory Allocation](#dynamic-memory-allocation)
+      - [malloc](#malloc)
+      - [calloc](#calloc)
+      - [free](#free)
+      - [realloc](#realloc)
+      - [alloca](#alloca)
+  - [Memory Mapped File](#memory-mapped-file)
+  - [Inter-Process Communication (IPC)](#inter-process-communication-ipc)
+    - [IPC using Pipes](#ipc-using-pipes)
+    - [Named Pipes and FIFO Files](#named-pipes-and-fifo-files)
+  - [Security Essentials](#security-essentials)
+    - [Buffer Overflow](#buffer-overflow)
+    - [Format String Vulnerabilities](#format-string-vulnerabilities)
 
 ## Linux OS Core Features
 
@@ -36,18 +65,6 @@ This repository focuses on strengthening Linux system programming capabilities u
 - **Multiple Distributions**
   - RedHat, SuSe, Debian, Slackware, Ubuntu
 - **Open Source Software (OSS)**
-
-## Security Engineering Focus
-
-This repository emphasizes understanding Linux internals from a security perspective, covering:
-
-- System call interfaces and their security implications
-- Memory management and potential vulnerabilities
-- Process isolation and privilege escalation vectors
-- File system security and access controls
-- Inter-process communication security considerations
-
----
 
 ## Linux System Programming Examples and Documentation
 
@@ -95,7 +112,7 @@ off_t lseek(int fildes, off_t offset, int whence);
         - filedes : Open file descriptor
         - offset : Position to set
         - whence : Reference point for offset
-    		SEEK_SET / SEEK_CUR / SEEK_END
+      SEEK_SET / SEEK_CUR / SEEK_END
 
     Return Values:
         - Success : New file offset
@@ -112,12 +129,12 @@ int fcntl(int fd, int cmd);
 int fcntl(int fd, int cmd, long arg);
 int fcntl(int fd, int cmd, struct flock *lock);
 
-# Input Parameters
+// Input Parameters
     - fd : File descriptor to control
     - cmd : Desired file control operation
     - arg : Value required by cmd argument
 
-# Return Values
+// Return Values
     - Success : Value depending on cmd
     - Error : -1
 ```
@@ -144,9 +161,11 @@ void* malloc(size_t size);
 ```
 
 **Input:**
+
 - size : Size in bytes for memory allocation request
 
 **Return:**
+
 - Success : Pointer to allocated memory block
 - Error : NULL
 
@@ -158,6 +177,7 @@ void* calloc(size_t nmemb, size_t size);
 ```
 
 **Input:**
+
 - nmemb : Number of elements to allocate
 - size : Size of each element in bytes
 
@@ -171,6 +191,7 @@ void free(void *ptr)
 ```
 
 **Input:**
+
 - ptr : Pointer to memory block to be freed
 
 **Return:** None
@@ -183,10 +204,12 @@ void* realloc(void *ptr, size_t size);  // Reuse existing allocated portion
 ```
 
 **Input:**
+
 - ptr : Pointer to memory block
 - size : Total byte size for reallocation
 
 **Return:**
+
 - Success : Pointer to reallocated memory block
 - Error : NULL
 
@@ -199,9 +222,11 @@ void alloca(size_t size);  // Allocate from stack  // Automatically freed on fun
 ```
 
 **Input:**
+
 - size : Size in bytes to allocate
 
 **Return:**
+
 - Success : Pointer to allocated memory block
 - Error : NULL
 
@@ -226,10 +251,10 @@ The first descriptor is used for read offset and the other for write offset, mak
 
 int pipe(int fildes[2]);
 
-# Input Parameters
+// Input Parameters
     - fildes : Two file descriptors for input and output pipes
         
-# Return Values
+// Return Values
     - Success : 0
     - Error : -1
 ```
@@ -259,32 +284,66 @@ int mkfifo (const char *pathname, mode_t mode);
 // mkfifo() makes a FIFO special file with name pathname.
 // mode specifies the FIFO's permissions.
 
-# Return Values
+// Return Values
     - Success : 0
     - Error : -1
 ```
 
 **Example:** `5_Inter Process Communication/3_named-pipe_and_fifo/`
 
-## Repository Structure
+## Security Essentials
 
-```
-Linux_System_Programming/
-├── 1_Process_and_Thread/
-│   ├── 1_print_num/
-│   └── 2_shell/
-├── 2_File_System/
-│   ├── 1_copy/
-│   ├── 2_random_access/
-│   └── 3_file_control/
-├── 3_Memory_Management/
-│   ├── 1_virtual_addr_space_in_proc/
-│   └── 2_dynamic_mem_alloc/
-├── 4_Memory_Mapped_File/
-└── 5_Inter Process Communication/
-    ├── 1_file_copy_with_pipe/
-    ├── 2_non-blocking_pipe/
-    └── 3_named-pipe_and_fifo/
-```
+This repository includes practical security vulnerability examples to understand common attack vectors and defensive programming techniques.
 
-Each directory contains practical C examples demonstrating the concepts with security considerations in mind.
+### Buffer Overflow
+
+Buffer overflow vulnerabilities occur when programs write data beyond the boundaries of allocated memory buffers. This can lead to:
+
+- Stack corruption and program crashes
+- Arbitrary code execution
+- Return address overwrites
+- Privilege escalation
+
+**Key concepts covered:**
+
+- Stack layout and buffer boundaries
+- Stack canaries and modern protections
+- ASLR (Address Space Layout Randomization)
+- NX bit (No Execute) protection
+- Compilation flags for vulnerability testing
+
+**Example:** `Security_Essentials/1_Buffer_Overflow/`
+
+The example includes a Makefile for Docker-based testing with:
+
+- Vulnerable and secure compilation options
+- Various buffer overflow test scenarios
+- Educational exploitation demonstrations
+- Security comparison between protected and unprotected binaries
+
+### Format String Vulnerabilities
+
+Format string vulnerabilities arise from improper use of printf-family functions where user input is directly used as a format string. This can result in:
+
+- Information disclosure through stack reading
+- Arbitrary memory reads
+- Arbitrary memory writes
+- Program crashes and potential code execution
+
+**Key concepts covered:**
+
+- Format specifier behavior (`%x`, `%s`, `%n`)
+- Stack layout analysis
+- Position-based format string access
+- Memory write techniques
+- Compiler warnings and protections
+
+**Example:** `Security_Essentials/2_Format_String/`
+
+The example includes comprehensive testing capabilities:
+
+- Information leakage demonstrations
+- Stack content dumping
+- Memory write attack simulations
+- Crash testing with invalid format strings
+- Secure vs. vulnerable implementation comparisons
