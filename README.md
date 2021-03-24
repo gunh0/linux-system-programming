@@ -1,6 +1,6 @@
 # Linux System Programming
 
-This repository focuses on strengthening Linux system programming capabilities using C language, specifically designed for security engineers who want to gain deep knowledge from code-level understanding.
+This repository contains Linux system programming examples using C language, with a focus on important security concepts and vulnerabilities.
 
 ## Table of Contents
 
@@ -40,6 +40,8 @@ This repository focuses on strengthening Linux system programming capabilities u
   - SMP: Symmetric Multi Processor
   - NUMA: Non-uniform Memory Access
 
+<br/>
+
 - **High Hardware Portability**
 - **Virtual Memory System Support**
   - Demand Paging
@@ -47,6 +49,9 @@ This repository focuses on strengthening Linux system programming capabilities u
   - Swap-caching
   - Copy-on-write
   - Pre-loading (OMAGIC)
+
+<br/>
+
 - **Virtual File Systems**
   - Ext2
   - Commercial Unix File Systems
@@ -58,6 +63,9 @@ This repository focuses on strengthening Linux system programming capabilities u
 - **Shared Libraries (ELF)**
 - **Networking**
 - **GNU C (gcc, g++)**
+
+<br/>
+
 - **POSIX 1003.1-2001, BSD, SysV Compliance**
 - **Various Executable File Format Support**
 - **International Keyboard and Font Support**
@@ -80,6 +88,8 @@ This repository focuses on strengthening Linux system programming capabilities u
 >
 > They can also be omitted entirely, yielding `int main()`, if you do not intend to process command line arguments.
 
+<br/>
+
 ## Process & Thread
 
 ### The Creation and Extinction of a Process
@@ -89,6 +99,8 @@ This repository focuses on strengthening Linux system programming capabilities u
 ### System Call exec Group for Program Replacement(Loading) of Processes
 
 - Example of a small shell using fork and exec system calls : `1_Process_and_Thread/2_shell/`
+
+<br/>
 
 ## File System
 
@@ -148,6 +160,8 @@ int fcntl(int fd, int cmd, struct flock *lock);
 - F_GETFL : Get file status flags, returns current flags
 - F_SETFL : Set file status flags (O_APPEND, O_NONBLOCK, O_ASYNC, O_DIRECT), returns 0
 ```
+
+<br/>
 
 ## Memory Management
 
@@ -230,6 +244,8 @@ void alloca(size_t size);  // Allocate from stack  // Automatically freed on fun
 - Success : Pointer to allocated memory block
 - Error : NULL
 
+<br/>
+
 ## Memory Mapped File
 
 - Linux operating systems provide a technique that maps the contents of I/O devices or files to a process's virtual address space to increase I/O convenience and access speed. This is called memory mapped I/O, and the related files are called memory mapped files.
@@ -237,6 +253,8 @@ void alloca(size_t size);  // Allocate from stack  // Automatically freed on fun
 - In other words, using this mapping technique, file I/O becomes memory I/O, and processes can access file contents using variables, pointers, arrays, etc., without performing read/write operations on files.
 
 **Example:** `4_Memory_Mapped_File/`
+
+<br/>
 
 ## Inter-Process Communication (IPC)
 
@@ -291,6 +309,8 @@ int mkfifo (const char *pathname, mode_t mode);
 
 **Example:** `5_Inter Process Communication/3_named-pipe_and_fifo/`
 
+<br/>
+
 ## Security Essentials
 
 This repository includes practical security vulnerability examples to understand common attack vectors and defensive programming techniques.
@@ -320,6 +340,8 @@ The example includes a Makefile for Docker-based testing with:
 - Various buffer overflow test scenarios
 - Educational exploitation demonstrations
 - Security comparison between protected and unprotected binaries
+
+<br/>
 
 ### Format String Vulnerabilities
 
