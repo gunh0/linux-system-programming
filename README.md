@@ -30,6 +30,8 @@ This repository contains Linux system programming examples using C language, wit
   - [Security Essentials](#security-essentials)
     - [Buffer Overflow](#buffer-overflow)
     - [Format String Vulnerabilities](#format-string-vulnerabilities)
+    - [Race Conditions](#race-conditions)
+    - [Privilege Escalation](#privilege-escalation)
 
 ## Linux OS Core Features
 
@@ -369,3 +371,51 @@ The example includes comprehensive testing capabilities:
 - Memory write attack simulations
 - Crash testing with invalid format strings
 - Secure vs. vulnerable implementation comparisons
+
+<br/>
+
+### Race Conditions
+
+Race condition vulnerabilities occur when the security of a program depends on the timing or ordering of events, particularly in multi-threaded or concurrent environments. TOCTOU (Time-of-Check to Time-of-Use) is a common type of race condition.
+
+**Key concepts covered:**
+
+- TOCTOU (Time-of-Check to Time-of-Use) vulnerabilities
+- File system race conditions
+- Symlink attack vectors
+- Atomic operations and secure file handling
+- Race window exploitation techniques
+
+**Example:** `Security_Essentials/3_Race_Conditions/`
+
+The example demonstrates:
+
+- Vulnerable file operations with race windows
+- Symlink attack simulations
+- Secure file handling with proper checks
+- Automated race condition testing
+- Real-time race condition exploitation
+
+<br/>
+
+### Privilege Escalation
+
+Privilege escalation vulnerabilities allow attackers to gain higher privileges than intended, often through SUID (Set-User-ID) programs or other privileged executables with security flaws.
+
+**Key concepts covered:**
+
+- SUID bit functionality and risks
+- Command injection in privileged programs
+- Unsafe use of system() function
+- Privilege dropping techniques
+- Input validation and sanitization
+
+**Example:** `Security_Essentials/4_Privilege_Escalation/`
+
+The example includes:
+
+- SUID binary vulnerability demonstration
+- Command injection attack vectors
+- Multiple exploitation scenarios
+- Secure programming practices
+- Privilege management best practices
